@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    gap: 10px;
+}
+
+#main img {
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.img-div {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 250px;
+    width: 50px;
+    transition: 0.5s ease;
+}
+
+.img-div::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    transition: 0.5s ease;
+}
+
+.img-div::after {
+    content: "1";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    font-size: 14px;
+    height: 30px;
+    width: 30px;
+    background-color: #1f1f2b;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+    bottom: 10px;
+    left: 10px;
+}
+
+#img1::after {
+    content: "1";
+}
+#img2::after {
+    content: "2";
+}
+#img3::after {
+    content: "3";
+}
+#img4::after {
+    content: "4";
+}
+
+.img-div:hover {
+    width: 300px;
+}
+
+.img-div:hover::before {
+    background-color: transparent;
+    backdrop-filter: none;
+}
+
+.img-div div {
+    position: absolute;
+    z-index: 10;
+    left: 50px;
+    bottom: 15px;
+}
+
+.img-div div h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.img-div div h2 {
+    font-size: 8px;
+    font-weight: 400;
+    color: #d0cccc;
+    text-shadow: .5px .5px .5px black;
+
+}
+
+.img-div div h2,
+.img-div div h1 {
+    white-space: nowrap;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: all 1s ease ;
+}
+.img-div:hover div h2,
+.img-div:hover div h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+    #main {
+        flex-direction: column;
+    }
+    .img-div {
+        height: 50px;
+        width: 300px;
+        transition: 0.5s ease;
+        flex-wrap: wrap;
+    }
+    .img-div:hover {
+        height: 200px;
+    }
+}
